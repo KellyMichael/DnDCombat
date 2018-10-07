@@ -1,4 +1,8 @@
+button{
+  height:50px;
 
+
+}
 
 table{
   border:1px solid black;
@@ -8,7 +12,8 @@ border-collapse: collapse;
 
 }
 table,td,th{
-
+  font-size:1.5em;
+  text-align:center;
   border:1px solid black;
 }
 
@@ -20,3 +25,7 @@ td{
 
 
 }
+button{
+  float:right;
+  margin-right:10px;
+  }

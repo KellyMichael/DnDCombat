@@ -13,6 +13,7 @@ var createGoblin = (name) => ({
 var createFighter = (name) => ({
   type:'Fighter',
   marker:'F',
+  //marker:,
   health:12,
   ac:15,
   attack:{
@@ -29,9 +30,9 @@ var randomBoard = (b_width, b_height) => {
     for(let j = 0; j < 21; j++){
       var result = Math.random();
       var creature = null;
-      if(result < 0.05){
+      if(result < 0.00000001){
         creature = createGoblin();
-      } else if (result < 0.1){
+      } else if (result < 0.0000000000001){
         creature = createFighter();
       }
       row.push(creature)
@@ -42,5 +43,7 @@ var randomBoard = (b_width, b_height) => {
 }
 
 export default {
-  randomBoard
+    createGoblin, randomBoard,
+  createFighter
+
 }
