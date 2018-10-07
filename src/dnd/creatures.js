@@ -26,7 +26,7 @@ var randomBoard = (b_width, b_height) => {
   var board = []
   for(let i = 0; i < 10; i++){
     let row = []
-    for(let j = 0; j < 10; j++){
+    for(let j = 0; j < 21; j++){
       var result = Math.random();
       var creature = null;
       if(result < 0.05){
