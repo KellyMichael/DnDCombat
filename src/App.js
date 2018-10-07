@@ -9,8 +9,16 @@ class App extends Component {
     super();
     var board = Creatures.randomBoard();
     this.state = {
-      board
+      board,
+      selectedRow:null,
+      selectedCol:null,
     }
+  }
+  selectSpace(row, col){
+    this.setState({
+      selectedRow:row,
+      selectedCol:col
+    })
   }
 
   render() {
@@ -21,13 +29,16 @@ class App extends Component {
       <table>
         <tbody>
           {
-            this.state.board.map((row) => {
-              col = 0
+            this.state.board.map((row, rowIndex) => {
               return (
                 <tr>
                   {
-                    row.map((creature) => {
-                      return (<td>{creature?creature.marker:''}</td>);
+                    row.map((creature, colIndex) => {
+                      var color = "white";
+                      if(rowIndex == this.state.selectedRow && colIndex == this.state.selectedCol ){
+                        color = "green";
+                      }
+                      return (<td style={{backgroundColor:color}} onClick={() => this.selectSpace(rowIndex, colIndex)}>{creature?creature.marker:''}</td>);
                     })
                   }
                 </tr>
