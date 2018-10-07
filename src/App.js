@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Creatures from './dnd/creatures.js'
-
+import ArrowKeysReact from 'arrow-keys-react'
 class App extends Component {
 
   constructor(){
@@ -12,7 +12,57 @@ class App extends Component {
       board,
       selectedRow:null,
       selectedCol:null,
-    }
+      }
+  
+ArrowKeysReact.config({
+
+left:() => {
+if(this.state.selectedRow != null){
+  this.setState({
+    selectedCol:this.state.selectedCol-1
+
+  })
+
+}
+
+},
+right:() => {
+if(this.state.selectedRow != null){
+  this.setState({
+    selectedCol:this.state.selectedCol+1
+
+  })
+
+}
+  
+},
+up:() => {
+if(this.state.selectedRow != null){
+  this.setState({
+    selectedRow:this.state.selectedRow-1
+
+  })
+
+}
+  
+},
+down:() => {
+if(this.state.selectedRow != null){
+  this.setState({
+    selectedRow:this.state.selectedRow+1
+
+  })
+
+}
+  
+}
+
+
+})
+
+
+
+
   }
   selectSpace(row, col){
     this.setState({
@@ -26,7 +76,7 @@ class App extends Component {
     var row = 0;
     var col = 0;
     return (
-      <table>
+      <table {...ArrowKeysReact.events} tabIndex='1'>
         <tbody>
           {
             this.state.board.map((row, rowIndex) => {
