@@ -1,5 +1,17 @@
 .App {
   text-align: center;
+  width:50%;
+  font-family: monospace;
+}
+td{
+  height: 2em;
+  width: 2em;
+  border:1px solid black;
+  text-align: center;
+}
+
+table{
+  border-collapse: collapse;
 }
 
 .App-logo {

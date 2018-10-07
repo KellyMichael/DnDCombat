@@ -1,28 +1,44 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Creatures from './dnd/creatures.js'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+
+  constructor(){
+    super();
+    var board = Creatures.randomBoard();
+    this.state = {
+      board
+    }
   }
+
+  render() {
+    console.log(this.state.board);
+    var row = 0;
+    var col = 0;
+    return (
+      <table>
+        <tbody>
+          {
+            this.state.board.map((row) => {
+              col = 0
+              return (
+                <tr>
+                  {
+                    row.map((creature) => {
+                      return (<td>{creature?creature.marker:''}</td>);
+                    })
+                  }
+                </tr>
+              )
+            })
+          }
+        </tbody>
+      </table>
+    )
+  }
+
 }
 
 export default App;
